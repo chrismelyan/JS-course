@@ -9,8 +9,9 @@ answerArray[i] = "_";
 }
 
 var remainingLetter = word.length;
+var guesses = 20;
 // Итоговый массив
-while(remainingLetter > 0) {
+while(remainingLetter > 0 && guesses > 0) {
     // Показываем состояние игры
 alert(answerArray.join(" "));
 
@@ -22,10 +23,11 @@ break;
 } else if (guess.length !== 1) {
 alert ("Введи одну букву!");
 } else {
+    guesses--;
     guess = guess.toLocaleLowerCase();
     // Обновляем состояние игры
 for (var j = 0; j < word.length; j++){
-if (word[j] === guess) {
+if (word[j] === guess && answerArray[j] === "_") {
 answerArray[j] = guess;
 remainingLetter--;
 }
@@ -35,4 +37,8 @@ remainingLetter--;
 }
 // Отображаем ответ и поздравляем игрока
 alert (answerArray.join(" "));
-alert ("Отлично! Было загадано слово " + word");
+if (guesses > 0) {
+alert("Отлично! Было загадано слово " + word);
+} else {
+alert ("Очень плохо! Было загадано слово " + word);
+}
