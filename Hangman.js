@@ -1,4 +1,4 @@
-var words = ["программа","макака","прекрасный","оладушек"];
+var words = ["программа", "макака", "прекрасный", "оладушек", "кирпич", "голова", "небоскреб"];
 var word = words[Math.floor(Math.random() * words.length)];
 
 var answerArray = [];
