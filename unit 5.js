@@ -1,4 +1,4 @@
-let taxi = {
+var taxi = {
     make: "Webville Motors",
     model: "Taxi",
     year: 1955,
@@ -17,7 +17,7 @@ function prequal(car) {
     return true;
 }
 
-let worthALook = prequal(taxi);
+var worthALook = prequal(taxi);
 
 if (worthALook) {
     console.log("You gotta check out this " + taxi.make + " " + taxi.model);
