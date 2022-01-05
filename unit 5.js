@@ -47,13 +47,6 @@ function prequal(car) {
     return true;
 }
 
-var worthALook = prequal(taxi);
-
-if (worthALook) {
-    console.log("You gotta check out this " + taxi.make + " " + taxi.model);
-} else {
-    console.log("You should really pass on the " + taxi.make + " " + taxi.model);
-}
 
 var worthALook1 = prequal(fiat);
 
