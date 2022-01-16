@@ -11,8 +11,53 @@
     <img id="map" width=400 height=400 src="http://nostarch.com/images/treasuremap.png">
     <p id="distance"></p>
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
-    <script>
+    <script> 
+        const getRandomNumber = (size) => {
+            return Math.floor(Math.random() * size);
+        };
 
+        const getDistance = (event, target) => {
+            let diffx = event.offsetX - target.x;
+            let diffY = event.offsetY - target.y;
+            return Math.sqrt ((diffX * diffX) + (diffY * diffY));
+        }
+
+        const getDistanceHint = (distance) => {
+            if (distance < 10) {
+                return "Обожжешься!";
+            } else if (distance < 20) {
+                return "Очень горячо";
+            } else if (distance < 40) {
+                return "Горячо";
+            } else if (distance < 80) {
+                return "Тепло";
+            } else if (distance < 160) {
+                return "Холодно";
+            } else if (distance < 320) {
+                return "Очень холодно";
+            } else {
+                return "Замерзнешь!";
+            }
+        };
+
+        const width = 400;
+        const height = 400;
+        let clicks = 0;
+
+        let target = {
+            x: getRandomNumber(width),
+            y: getRandomNumber(height)
+        };
+
+        $("#map").click(function (event) {
+            clicks++;
+            let distance = getDistance(event, target);
+            let distanceHint = getDistanceHint(distance);
+            $("#distance").text(distanceHint);
+            if (distance < 8) {
+        alert("Клад найден! Сделано кликов: " + clicks);
+            }
+        });
     </script>
 </body>
 </html>
