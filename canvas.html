@@ -7,7 +7,7 @@
     <title>Canvas</title>
 </head>
 <body>
-    <canvas id="canvas" width="200" height="200"></canvas>
+    <canvas id="canvas" width="400" height="400"></canvas>
     <script>
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
@@ -30,7 +30,45 @@
         ctx.fillStyle = 'Red';
         ctx.fillRect(20, 150, 10, 40);
         ctx.fillRect(70, 150, 10, 40);
+        //circle 
+        // ctx.linewidth = 2;
+        // ctx.strokeStyle = 'Green';
 
+        // ctx.beginPath();
+        // ctx.arc(150, 200, 20, 0, Math.PI / 2, false);
+        // ctx.stroke();
+
+        // ctx.beginPath();
+        // ctx.arc(200, 200, 20, 0, Math.PI, false);
+        // ctx.stroke();
+
+        function circle(x, y, radius) {
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.stroke();
+        };
+        
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Red';
+        circle(200, 200, 20);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Orange';
+        circle(200, 200, 30);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Yellow';
+        circle(200, 200, 40);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Green';
+        circle(200, 200, 50);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Blue';
+        circle(200, 200, 60);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'DarkBlue';
+        circle(200, 200, 70);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'Purple';
+        circle(200, 200, 80);
 
     </script>
 </body>
