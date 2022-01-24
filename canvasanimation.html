@@ -19,7 +19,7 @@
 
         function circle(x, y, radius, fillCircle) {
             ctx.beginPath();
-            ctx.arc(x, y, 0, Math.PI * 2, false);
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
             if(fillCircle) {
                 ctx.fill();
             } else {
@@ -52,7 +52,7 @@
             x = update(x);
             y = update (y);
 
-            ctx.strokePect(0, 0, 200, 200);
+            ctx.strokeRect(0, 0, 200, 200);
         }, 30);
 
         function update(coordinate) {
