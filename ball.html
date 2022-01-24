@@ -11,13 +11,6 @@
     <script>
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
-        
-        function Ball() {
-            this.x = 100;
-            this.y = 100;
-            this.xSpeed = -2;
-            this.ySpeed = -3;
-        }
 
         function circle(x, y, radius, fillCircle) {
             ctx.beginPath();
@@ -29,8 +22,15 @@
             }
         }
 
+        function Ball() {
+            this.x = 100;
+            this.y = 100;
+            this.xSpeed = -2;
+            this.ySpeed = 3;
+        }
+
         Ball.prototype.draw = function() {
-            circle(thus.x, this.y, 3, true)
+            circle(this.x, this.y, 3, true)
         };
 
         Ball.prototype.move = function() {
@@ -38,12 +38,12 @@
             this.y += this.ySpeed;
         };
 
-        Ball.prototype.collision = function () {
-            if(this.x < 0 || this.x > 200) {
+        Ball.prototype.checkCollision = function () {
+            if (this.x < 0 || this.x > 200) {
                 this.xSpeed = -this.xSpeed;
             }
           
-            if(this.y < 0 || this.y > 200) {
+            if (this.y < 0 || this.y > 200) {
                  this.ySpeed = -this.ySpeed;
             }
         };
