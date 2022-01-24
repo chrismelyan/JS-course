@@ -12,17 +12,61 @@
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
-        let size = 0;
+        let x = 100;
+        let y = 100;
+
+        // let size = 0;
+
+        function circle(x, y, radius, fillCircle) {
+            ctx.beginPath();
+            ctx.arc(x, y, 0, Math.PI * 2, false);
+            if(fillCircle) {
+                ctx.fill();
+            } else {
+                ctx.stroke();
+            }
+        }
+
+        function drawBee(x, y) {
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'Black';
+            ctx.fillStyle = 'Gold';
+
+            circle(x, y, 8, true);
+            circle(x, y, 8, false);
+            circle(x - 5, y - 11, 5, false);
+            circle(x + 5, y - 11, 5, false);
+            circle(x - 2, y - 1, 2, false);
+            circle(x + 2, y - 1, 2, false);
+        }
 
         setInterval(function () {
             ctx.clearRect(0, 0, 200, 200);
-            ctx.fillRect(0, 0, size, size);
+            // ctx.fillRect(0, 0, size, size);
 
-            size++;
-            if(position > 200) {
-                position = 0;
-            }
+            // size++;
+            // if(position > 200) {
+            //     position = 0;
+            // }
+            drawBee(x, y);
+            x = update(x);
+            y = update (y);
+
+            ctx.strokePect(0, 0, 200, 200);
         }, 30);
+
+        function update(coordinate) {
+            let offset = Math.random() * 4 - 2;
+            coordinate += offset;
+
+            if(coordinate > 200) {
+                coordinate - 200;
+            }
+            if(coordinate < 0) {
+                coordinate = 0;
+            }
+            return coordinate;
+        };
     </script>
 </body>
 </html>
