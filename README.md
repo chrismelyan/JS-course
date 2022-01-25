@@ -1,2 +1,6 @@
 # JS-course
-"Head First: JS" practical tasks
+
+Exercises and code practicing:
+
+"Head First: Java Script" 
+"Java Script для детей"
