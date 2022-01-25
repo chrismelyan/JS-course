@@ -1,6 +1,6 @@
 # JS-course
 
-Exercises and code practicing:
+Exercises and code practice:
 
 - "Head First: Java Script" 
 
