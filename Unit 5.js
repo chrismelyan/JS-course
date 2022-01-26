@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi</title>
-</head>
-<body>
-    <h1>Shall I take this car?</h1>
-    <script>
-        var taxi = {
+var taxi = {
     make: "Webville Motors",
     model: "Taxi",
     year: 1955,
@@ -88,6 +77,3 @@ if (worthALook3) {
 } else {
     console.log("You should really pass on the " + cadi.make + " " + cadi.model);
 }
-    </script>
-</body>
-</html>
