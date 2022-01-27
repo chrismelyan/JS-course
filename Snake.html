@@ -35,6 +35,8 @@
 
             ctx.fillText('Score: ' + score, blockSize, blockSize);
         }
+
+        
         let snake = new Snake 
         
 
@@ -46,6 +48,16 @@
             apple.draw();
             drawBorder();
         }, 100);
+
+        function gameOver() {
+            clearInterval(intervalId);
+            ctx.font = '60px Courier';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Game over', width/2, height/2);
+        }
+        
     </script>
 </body>
 </html>
