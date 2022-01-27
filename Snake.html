@@ -19,8 +19,8 @@
         let heightInBlocks = height/blockSize;
         let score = 0;
 
-        function drawBoarder() {
-            ctx.fillStyle = 'grey';
+        function drawBorder() {
+            ctx.fillStyle = 'black';
             ctx.fillRect(0, 0, width, blockSize);
             ctx.fillRect(0, height - blockSize, width, blockSize);
             ctx.fillRect(0, 0, blockSize, height);
@@ -29,7 +29,7 @@
 
         function drawScore() {
             ctx.font = '20px Courier';
-            ctx.fillstyle = 'black';
+            ctx.fillstyle = 'Black';
             ctx.textBaseline = 'top';
             ctx.textAlign = 'left';
             ctx.fillText('Score: ' + score, blockSize, blockSize);
@@ -38,7 +38,7 @@
         function gameOver() {
             clearInterval(intervalId);
             ctx.font = '60px Courier';
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'Black';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText('Game over', width/2, height/2);
@@ -190,7 +190,7 @@
         };
 
         $('body').keydown(function(event) {
-            let newDirection = direction[event.keyCode];
+            let newDirection = directions[event.keyCode];
             if (newDirection !== undefined) {
                 snake.setDirection(newDirection);
             }
