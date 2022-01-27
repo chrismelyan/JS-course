@@ -36,8 +36,45 @@
             ctx.fillText('Score: ' + score, blockSize, blockSize);
         }
 
+        function Block(col, row) {
+            this.col = col;
+            this.row = row;
+        }
+         
+        Block.prototype.drawSquare = function(color) {
+            let x = this.col * blockSize;
+            let y = this.row * blockSize;
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, blockSize, blockSize);
+        };
+
+        Block.prototype.drawCircle = function(color) {
+            let centerX = this.col * blockSize + blockSize/2;
+            let centerY = this.row * blockSize + blockSize/2;
+            ctx.fillStyle = color;
+            circle(centerX, centerY, blockSize/2, true);
+        };
+
+        Block.prototype.equal = function(otherBlock) {
+            return this.col === otherBlock.col && this.row === otherBlock.row;
+        };
         
-        let snake = new Snake 
+        function Snake() {
+            this.segments = [
+                new Block(7, 5),
+                new Block(6, 5),
+                new Block(5, 5)
+            ];
+
+            this.direction = 'right';
+            this.nextDirection = 'right';
+        }
+
+        Snake.prototype.draw = function() {
+            for(let i = 0; i < this.segments.length; i++) {
+                this.segments[i].drawSquare('blue');
+            }
+        };
         
 
         let intervalId = setInterval(function() {
@@ -57,7 +94,7 @@
             ctx.textBaseline = 'middle';
             ctx.fillText('Game over', width/2, height/2);
         }
-        
+
     </script>
 </body>
 </html>
