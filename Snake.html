@@ -8,14 +8,33 @@
 </head>
 <body>
     <canvas id='canvas' width='400' height='400'></canvas>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
     <script>
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         let width = canvas.width;
         let height = canvas.height;
+        let blockSize = 10;
+        let widthInBlocks = width/blockSize;
+        let heighInBlocks = height/blockSize;
+        let score = 0;
 
-        let count = 0;
+        function drawBoarder() {
+            ctx.fillStyle = 'grey';
+            ctx.fillRect(0, 0, width, blockSize);
+            ctx.fillRect(0, height - blockSize, width, blockSize);
+            ctx.fillRect(0, 0, blockSize, height);
+            ctx.fillRect(width - blockSize, 0, blockSize, height);
+        }
 
+        function drawScore() {
+            ctx.font = '20px Courier';
+            ctx.fillstyle = 'black';
+            ctx.textBaseline = 'top';
+            ctx.textAlign = 'left';
+
+            ctx.fillText('Score: ' + score, blockSize, blockSize);
+        }
         let snake = new Snake 
         
 
